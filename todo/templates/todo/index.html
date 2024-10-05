@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Wish a birthday</title>
+    </head>
+    <body>
+        <h1>Wish someone birthday</h1>
+        <ul>
+            {% for task in task %}
+            <li>
+                {{task.title}}
+                <a href="{% url 'delete_task' task.id %}">Delete</a>
+            </li>
+            {% empty %}
+            <li>No data found.</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add_task' %}">Add a new wish</a>
+    </body>
+</html>
